@@ -5,9 +5,11 @@ const calculator = {
     operator: null,
 };
 
+// Function for input values
 function inputValue(value) {
     const { displayValue, secondOperand } = calculator;
 
+    // updates display with the second number clicked 
     if (secondOperand === true) {
         calculator.displayValue = value;
         calculator.secondOperand = false;
@@ -16,6 +18,7 @@ function inputValue(value) {
     }
 }
 
+// Function handles converiting string to numbers
 function handleOperations(nextOperator) {
     const { firstOperand, displayValue, operator } = calculator;
     const firstValue = parseFloat(displayValue);
@@ -39,6 +42,7 @@ function handleOperations(nextOperator) {
     calculator.operator = nextOperator;
 }
 
+// Calculates numbers
 function calculate( firstOperand, secondOperation, operator){
     if(operator === '+') {
         return firstOperand + secondOperation;
@@ -53,6 +57,7 @@ function calculate( firstOperand, secondOperation, operator){
     return secondOperation;
 }
 
+// Once cleared, input bar is back to zero
 function reset() {
     calculator.displayValue = '0';
     calculator.firstOperand = null;
@@ -60,6 +65,7 @@ function reset() {
     calculator.operator = null;
 }
 
+// Updates display
 function updateDisplay() {
     const display = document.querySelector('.calculator-input');
     display.value = calculator.displayValue;
